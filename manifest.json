@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Summarize Sidebar",
+  "description": "Summarize YouTube videos in sidebar",
+  "version": "1.0",
+  "permissions": [
+    "clipboardWrite",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "https://gemini.google.com/*",
+    "https://www.youtube.com/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "css": ["sidebar.css"]
+    },
+    {
+      "matches": ["https://gemini.google.com/*"],
+      "js": ["gemini.js"],
+      "all_frames": true
+    }
+  ]
+}
