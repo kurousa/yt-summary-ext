@@ -83,6 +83,7 @@
       if (isButtonEnabled) {
         clearInterval(sendTimer);
         sendButton.click();
+        editor.blur();
       } else if (sendAttempts >= 10) {
         // ボタンが見つからない・活性化しない場合はEnterキー押下をシミュレート
         clearInterval(sendTimer);
@@ -95,6 +96,7 @@
           cancelable: true,
         });
         editor.dispatchEvent(enterEvent);
+        editor.blur();
       }
     }, 300);
   }

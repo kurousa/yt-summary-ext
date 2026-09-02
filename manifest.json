@@ -5,12 +5,19 @@
   "version": "1.0",
   "permissions": [
     "clipboardWrite",
+    "sidePanel",
     "declarativeNetRequest"
   ],
   "host_permissions": [
     "https://gemini.google.com/*",
     "https://www.youtube.com/*"
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
   "declarative_net_request": {
     "rule_resources": [
       {
@@ -23,8 +30,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/*"],
-      "js": ["content.js"],
-      "css": ["sidebar.css"]
+      "js": ["content.js"]
     },
     {
       "matches": ["https://gemini.google.com/*"],
